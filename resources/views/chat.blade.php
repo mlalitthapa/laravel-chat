@@ -1,16 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Chatroom</title>
-	<link rel="stylesheet" href="css/app.css">
-</head>
-<body>
+
+@extends('layouts.app')
+
+@section('content')
+
 	<div id="app">
-		<h1>Chatroom</h1>
-		<chat-log :messages="messages"></chat-log>
-		<chat-composer @messagesent="addMessage"></chat-composer>
-	</div>
-	<script type="text/javascript" src="js/app.js"></script>
-</body>
-</html>
+		<div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                	<h3 class="panel-title">
+                        Chatroom
+                        <span class="badge pull-right">@{{ usersInRoom.length }}</span>
+                    </h3>
+                </div>
+                <div class="panel-body">
+					<chat-log :messages="messages"></chat-log>
+					<chat-composer @messagesent="addMessage"></chat-composer>
+				</div>
+            </div>
+        </div>
+    </div>
+
+@endsection

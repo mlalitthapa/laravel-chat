@@ -14,9 +14,15 @@
 		},
 		methods: {
 			sendMessage: function() {
+
+				if(this.inputMessage.trim() == '')
+					return false;
+
 				this.$emit('messagesent', {
 					message: this.inputMessage,
-					user: 'John Doe'
+					user: {
+						name: $('.navbar-right .dropdown-toggle').text()
+					}
 				});
 				this.inputMessage = '';
 			}
