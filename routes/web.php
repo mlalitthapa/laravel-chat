@@ -15,7 +15,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::group(['middleware' => 'auth'], function() {
 
-Route::get('/chat', function(){
-	return view('chat');
+	Route::get('/chat', function(){
+		return view('chat');
+	});
+
+	Route::get('/messages', 'MessageController@getMessages');
+
+	Route::post('/messages', 'MessageController@postMessage');
+
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
