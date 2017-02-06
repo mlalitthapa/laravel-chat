@@ -37176,7 +37176,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }],
     attrs: {
       "type": "text",
-      "placeholder": "Type your message"
+      "id": "message",
+      "placeholder": "Type your message here"
     },
     domProps: {
       "value": _vm._s(_vm.inputMessage)
